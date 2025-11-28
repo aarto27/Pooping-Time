@@ -5,7 +5,6 @@
   --poop-size: 56px;
 }
 
-/* base */
 *{box-sizing:border-box}
 html,body,#playArea{height:100%}
 body{
@@ -32,7 +31,6 @@ body{
   padding:12px;
 }
 
-/* HUD */
 .hud{
   display:flex;
   justify-content:space-between;
@@ -58,14 +56,12 @@ body{
   gap:6px;
 }
 
-/* top-right cluster */
 .hud-buttons{
   display:flex;
   gap:10px;
   align-items:center;
 }
 
-/* big fun buttons — cartoon style */
 .bucket, .pause, .sound, .exit-btn {
   border: none;
   padding:10px 14px;
@@ -78,14 +74,12 @@ body{
   font-size:18px;
 }
 
-/* bucked water style */
 .bucket{
   background: linear-gradient(180deg,#aee7ff,#8bd1ff);
   color:#045;
 }
 .bucket:active{ transform: translateY(2px) }
 
-/* pause big yellow circle */
 .pause{
   background: linear-gradient(180deg,#ffd86b,#ffbf40);
   color:#5b2b00;
@@ -98,20 +92,17 @@ body{
 }
 .pause.paused { background: linear-gradient(180deg,#9ad1ff,#6fbfff) }
 
-/* sound toggle bouncing */
 .sound{
   background: linear-gradient(180deg,#ffe8f0,#ffcbe6);
   color:#64134b;
 }
 .sound.silent{ opacity:0.6; transform: scale(.98) }
 
-/* exit red */
 .exit-btn{
   background: linear-gradient(180deg,#ff9b9b,#ff6b6b);
   color:white;
 }
 
-/* difficulty */
 .difficulty {
   display: flex;
   align-items: center;
@@ -141,18 +132,15 @@ body{
   transition: transform .12s ease, box-shadow .12s ease;
 }
 
-/* hover effect */
 .diff-select:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 18px rgba(0,0,0,0.14);
 }
 
-/* pressed effect */
 .diff-select:active {
   transform: translateY(1px);
 }
 
-/* ▼ arrow styling */
 .diff-select::after {
   content: "▼";
   position: absolute;
@@ -164,20 +152,16 @@ body{
   color: #5b2b00;
 }
 
-/* focused dropdown outline */
 .diff-select:focus {
   box-shadow: 0 0 0 3px rgba(255, 200, 80, 0.6);
 }
 
-/* options style */
 .diff-select option {
   font-weight: 800;
   color: #4a2c00;
   background: #ffe69c;
 }
 
-
-/* play area */
 .play-area{
   position:relative;
   flex:1;
@@ -189,7 +173,6 @@ body{
     linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.25));
 }
 
-/* start button */
 .start-btn{
   width:280px;
   height:74px;
@@ -207,7 +190,6 @@ body{
   cursor:pointer;
 }
 
-/* poop */
 .poop{
   position:absolute;
   width:var(--poop-size);
@@ -224,17 +206,16 @@ body{
   transition: transform .12s ease;
 }
 
-/* wobble while falling */
 .falling {
   animation: wobble 700ms ease-in-out infinite;
 }
+
 @keyframes wobble{
   0%{ transform: rotate(-8deg) }
   50%{ transform: rotate(8deg) }
   100%{ transform: rotate(-8deg) }
 }
 
-/* stuck */
 .stuck{
   animation: none !important;
   cursor:default;
@@ -242,7 +223,6 @@ body{
   opacity:0.98;
 }
 
-/* splatter FX */
 .splatter {
   position:absolute;
   width:64px;
@@ -260,13 +240,13 @@ body{
   animation: splat 700ms forwards;
   mix-blend-mode: multiply;
 }
+
 @keyframes splat {
   0% { transform: scale(0.2) rotate(-10deg); opacity:0.0; }
   35% { transform: scale(1.05) rotate(6deg); opacity:1; }
   100% { transform: scale(0.95) rotate(0deg); opacity:0; }
 }
 
-/* overlay */
 .overlay{
   position:absolute;
   inset:0;
@@ -281,30 +261,24 @@ body{
 }
 .hidden{ display:none }
 
-/* footer */
 .credits{ text-align:center; padding:8px; color:#5b6b73; font-size:13px; }
 
-/* responsive */
 @media (max-width:520px){
   :root{ --poop-size:44px }
   .start-btn{ width:86%; height:64px; font-size:18px }
   .hud-buttons { gap:8px; }
 }
-/* --- UNIVERSAL RESPONSIVE IMPROVEMENTS --- */
 
-/* Scale poop based on screen size */
 @media (max-width: 420px) {
   :root { --poop-size: 40px; }
   .poop { font-size: 32px !important; }
 }
 
-/* Even smaller screens */
 @media (max-width: 350px) {
   :root { --poop-size: 34px; }
   .poop { font-size: 26px !important; }
 }
 
-/* HUD responsiveness */
 @media (max-width: 720px) {
   .hud {
     flex-wrap: wrap;
@@ -312,18 +286,15 @@ body{
     justify-content: center;
     text-align: center;
   }
-
   .score {
     width: 100%;
     justify-content: center;
     font-size: 15px;
     gap: 8px;
   }
-
   .combo {
     font-size: 14px;
   }
-
   .hud-buttons {
     width: 100%;
     justify-content: center;
@@ -332,30 +303,25 @@ body{
   }
 }
 
-/* Buttons scale down on smaller móviles */
 @media (max-width: 580px) {
   .bucket, .pause, .sound, .exit-btn {
     padding: 8px 10px;
     font-size: 16px;
     transform: scale(0.96);
   }
-
   .pause {
     width: 42px;
     height: 42px;
   }
-
   .diff-select {
     padding: 6px 28px 6px 10px;
     font-size: 12px;
   }
-
   .diff-label {
     font-size: 12px;
   }
 }
 
-/* Start button responsiveness */
 @media (max-width: 520px) {
   .start-btn {
     width: 92%;
@@ -364,51 +330,41 @@ body{
   }
 }
 
-/* SUPER SMALL LOW-END PHONES */
 @media (max-width: 380px) {
   .start-btn {
     font-size: 15px;
     height: 54px;
   }
-
   .bucket, .pause, .sound, .exit-btn {
     font-size: 14px;
   }
-
   .diff-select {
     font-size: 11px;
   }
 }
 
-/* Landscape mobile mode */
 @media (max-height: 480px) and (orientation: landscape) {
   .game-wrap {
     height: 96vh;
   }
-
   .play-area {
     margin: 4px;
   }
-
   .poop {
     transform: scale(0.85);
   }
-
   .hud-buttons {
     transform: scale(0.92);
   }
 }
 
-/* Tablets */
 @media (min-width: 720px) and (max-width: 1024px) {
   :root { --poop-size: 52px; }
-
   .start-btn {
     width: 300px;
     height: 82px;
     font-size: 22px;
   }
-
   .score {
     font-size: 18px;
   }
